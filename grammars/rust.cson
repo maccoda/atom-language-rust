@@ -404,14 +404,16 @@
     ]
   }
   # Implementation
-  {
-    'comment': 'Implementation'
-    'begin': '\\b(impl)\\b'
-    'end': '\\{'
-    'beginCaptures': {
-      '1': { 'name': 'storage.type.rust' }
-    }
-    'patterns': [
+  'comment': 'Implementation'
+  'begin': '\\b(impl)(?:<[\'a-zA-Z]+>)? ([\\w]+)( for )?([\\w]+)?(?:<[\'a-zA-Z]+>)?\\b'
+  'end': '\\{'
+  'beginCaptures': {
+    '1': { 'name': 'storage.type.rust' }
+    '2': { 'name': 'entity.name.type.rust' }
+    '3': { 'name': 'storage.type.rust' }
+    '4': { 'name': 'entity.name.type.rust' }
+  }
+  'patterns': [
       { 'include': '#block_comment' }
       { 'include': '#line_comment' }
       { 'include': '#sigils' }
@@ -429,5 +431,5 @@
         'match': '\\bfor\\b'
       }
     ]
-  }
+    
 ]
