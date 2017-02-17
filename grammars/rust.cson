@@ -159,6 +159,10 @@
       { 'include': '#std_types' }
       { 'include': '#std_traits' }
       { 'include': '#type_params' }
+      {
+        'name': 'entity.name.type.rust'
+        'match': '\\b[A-Za-z]+\\b'
+      }
     ]
   }
 }
@@ -167,13 +171,10 @@
     # Implementation
   {
     'comment': 'Implementation'
-    'begin': '\\b(impl)(?:<[\'a-zA-Z\,\\s]+>)? ([\\w]+)(?:<[\'a-zA-Z\,\\s]+>)?( for )?([\\w]+)?(?:<[\'a-zA-Z\,\\s]+>)?\\s'
+    'begin': '\\b(impl)'
     'end': '\\{'
     'beginCaptures': {
       '1': { 'name': 'storage.type.rust' }
-      '2': { 'name': 'entity.name.type.rust' }
-      '3': { 'name': 'storage.type.rust' }
-      '4': { 'name': 'entity.name.type.rust' }
     }
     'patterns': [
         { 'include': '#block_comment' }
@@ -191,6 +192,10 @@
         {
           'name': 'storage.type.rust'
           'match': '\\bfor\\b'
+        }
+        {
+          'name': 'entity.name.type.rust'
+          'match': '\\b[A-Za-z]+\\b'
         }
       ]
   }
