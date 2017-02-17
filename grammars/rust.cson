@@ -404,6 +404,7 @@
     ]
   }
   # Implementation
+  {
   'comment': 'Implementation'
   'begin': '\\b(impl)(?:<[\'a-zA-Z]+>)? ([\\w]+)( for )?([\\w]+)?(?:<[\'a-zA-Z]+>)?\\b'
   'end': '\\{'
@@ -431,5 +432,5 @@
         'match': '\\bfor\\b'
       }
     ]
-    
+
 ]
