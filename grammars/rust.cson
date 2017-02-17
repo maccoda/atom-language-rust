@@ -164,6 +164,36 @@
 }
 
 'patterns': [
+    # Implementation
+  {
+    'comment': 'Implementation'
+    'begin': '\\b(impl)(?:<[\'a-zA-Z\,\\s]+>)? ([\\w]+)(?:<[\'a-zA-Z\,\\s]+>)?( for )?([\\w]+)?(?:<[\'a-zA-Z\,\\s]+>)?\\s'
+    'end': '\\{'
+    'beginCaptures': {
+      '1': { 'name': 'storage.type.rust' }
+      '2': { 'name': 'entity.name.type.rust' }
+      '3': { 'name': 'storage.type.rust' }
+      '4': { 'name': 'entity.name.type.rust' }
+    }
+    'patterns': [
+        { 'include': '#block_comment' }
+        { 'include': '#line_comment' }
+        { 'include': '#sigils' }
+        { 'include': '#mut' }
+        { 'include': '#ref_lifetime' }
+        { 'include': '#core_types' }
+        { 'include': '#core_marker' }
+        { 'include': '#core_traits' }
+        { 'include': '#std_types' }
+        { 'include': '#std_traits' }
+        { 'include': '#type_params' }
+        { 'include': '#where' }
+        {
+          'name': 'storage.type.rust'
+          'match': '\\bfor\\b'
+        }
+      ]
+  }
   # Comments
   { 'include': '#block_doc_comment' }
   { 'include': '#block_comment' }
@@ -403,34 +433,7 @@
       { 'include': '#type_params' }
     ]
   }
-  # Implementation
-  {
-  'comment': 'Implementation'
-  'begin': '\\b(impl)(?:<[\'a-zA-Z]+>)? ([\\w]+)( for )?([\\w]+)?(?:<[\'a-zA-Z]+>)?\\b'
-  'end': '\\{'
-  'beginCaptures': {
-    '1': { 'name': 'storage.type.rust' }
-    '2': { 'name': 'entity.name.type.rust' }
-    '3': { 'name': 'storage.type.rust' }
-    '4': { 'name': 'entity.name.type.rust' }
-  }
-  'patterns': [
-      { 'include': '#block_comment' }
-      { 'include': '#line_comment' }
-      { 'include': '#sigils' }
-      { 'include': '#mut' }
-      { 'include': '#ref_lifetime' }
-      { 'include': '#core_types' }
-      { 'include': '#core_marker' }
-      { 'include': '#core_traits' }
-      { 'include': '#std_types' }
-      { 'include': '#std_traits' }
-      { 'include': '#type_params' }
-      { 'include': '#where' }
-      {
-        'name': 'storage.type.rust'
-        'match': '\\bfor\\b'
-      }
-    ]
+
+
 
 ]
