@@ -142,6 +142,11 @@
     'name': 'support.type.std.rust'
     'match': '\\b(ToOwned|ToString)\\b'
   }
+  'type': {
+    'comment': 'A type'
+    'name': 'entity.name.type.rust'
+    'match': '\\b[A-Za-z0-9_]+\\b'
+  }
   'type_params': {
     'comment': 'Type parameters'
     'name': 'meta.type_params.rust'
@@ -159,10 +164,7 @@
       { 'include': '#std_types' }
       { 'include': '#std_traits' }
       { 'include': '#type_params' }
-      {
-        'name': 'entity.name.type.rust'
-        'match': '\\b[A-Za-z]+\\b'
-      }
+      { 'include': '#type' }
     ]
   }
 }
@@ -193,10 +195,7 @@
           'name': 'storage.type.rust'
           'match': '\\bfor\\b'
         }
-        {
-          'name': 'entity.name.type.rust'
-          'match': '\\b[A-Za-z]+\\b'
-        }
+        { 'include': '#type' }
       ]
   }
   # Comments
@@ -438,7 +437,4 @@
       { 'include': '#type_params' }
     ]
   }
-
-
-
 ]
